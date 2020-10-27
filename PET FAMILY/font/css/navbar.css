@@ -1,0 +1,47 @@
+/* ==================文件说明==================
+	author:蔡建新
+	create time:2020.10.22
+	new_edition:1.1
+ */
+a:focus{
+	color: white!important;
+}
+
+.mdui-appbar-fixed{
+	height: 116.27px;
+	box-shadow: none;
+}
+
+.mdui-appbar-fixed {
+	background-color: white;
+}
+
+.mdui-appbar-fixed .mdui-color-indigo{
+	background-color: initial!important;
+	color: black!important;
+	width: 90%;
+	margin-top: 1.2%;
+}
+
+.mdui-appbar-fixed .mdui-color-indigo a i{
+	font-size: 45px;
+}
+
+.mdui-appbar-fixed .mdui-color-indigo .logo_link i{
+	font-size: 70px;
+	color: #009fd9;
+	margin-bottom: 15px;
+}
+
+.mdui-appbar-fixed .mdui-color-indigo button{
+	width: 150px;
+	height: 60px!important;
+	border: 0px;
+	background-color: #009fd9;
+	color: white;
+	border-radius: 50px;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 0px 40px;
+	letter-spacing: 0.2em;
+}

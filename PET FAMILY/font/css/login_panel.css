@@ -1,0 +1,102 @@
+/* ==================文件说明==================
+	author:蔡建新
+	create time:2020.10.23
+	new_edition:1.1
+ */
+.panel{
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	width: 0px;
+	overflow: hidden;
+	background-color: #ffffffc2;
+	z-index: 999;
+	border: 0px;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+.panel .panel-body{
+	padding: 20px 15px;
+}
+
+.panel .panel-body .exit_box{
+	text-align: right;
+}
+
+.panel .panel-body .exit_box button{
+	background-color: initial;
+	font-size: 18px;
+	color: black;
+	border: 0px;
+	margin: 0px!important;
+	padding: 0px!important;
+	width: auto;
+	height: auto;
+}
+
+
+.panel .panel-body .exit_box button:hover{
+	box-shadow: none;
+}
+
+.panel .panel-body h2{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.panel .panel-body .input-control input{
+	height: 50px !important;
+	padding-left: 50px;
+	border: 0px;
+	border-radius: 0px;
+}
+.panel .panel-body .input-control img{
+	max-width: initial;
+	position: absolute;
+	left: 55%;
+	height: 45px;
+	top: 3%;
+}
+
+.panel .panel-body .input-control label{
+	left: 10px !important;
+	margin-top: 15px;
+	line-height: 0px !important;
+}
+
+.panel .panel-body label i{
+	font-size: 20px !important;
+}
+
+.panel .panel-body .checkbox a:nth-of-type(1)::after{
+	content: "|";
+	margin-left: 4px;
+}
+
+.panel .panel-body button{
+	width: 100%;
+	height: 40px;
+	letter-spacing: 10px;
+	margin-top: 10px!important;
+}
+
+button:focus{
+	outline: none !important;
+}
+
+.team_friend{
+	cursor: pointer;
+}
+
+.team_friend a{
+	font-size: 25px;
+	margin-right: 5px;
+	color: #3280fc !important;
+}
+
+.team_friend a label{
+	font-size: 15px;
+	font-weight: 400;
+	color: black;
+}

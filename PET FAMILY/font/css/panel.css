@@ -1,0 +1,65 @@
+.panel{
+	position: fixed;
+	top: 35%;
+	left: 35%;
+	background: white;
+	box-shadow: 0 2px 8px 0 #CCCCCC;
+	/* border: 1px solid #ccc; */
+	width: 25%;
+}
+
+.panel .panel_heading{
+	text-align: center;
+	display: flex;
+}
+
+.panel .panel_heading .panel_heading_tlt{
+	width: 90%;
+	margin: 20px 0px 15px 25px;
+}
+
+.panel .panel_heading button{
+	width: 10%;
+	border: 0px;
+	background-color: initial;
+	float: right;
+}
+
+.panel .panel_body{
+	padding: 2% 5%;
+}
+
+.panel .panel_body .input-control input{
+	height: 50px;
+	border-radius: 0px;
+	border: 1px solid white;
+	font-size: 15px;
+}
+
+.panel .panel_body .input-control input:focus{
+	border: 0px;
+}
+
+.panel .panel_body .input-control label{
+	line-height: 60px;
+	right: 10px;
+}
+
+.panel .panel_body .input-control label i{
+	font-size: 30px;
+}
+
+.panel .panel_body button{
+	width: 100%;
+	border: 0px;
+	border-radius: 0px;
+	background-color: #2c80ff;
+	color: white;
+	height: 40px;
+	margin: 3% 0px;
+	font-size: 16px;
+}
+
+.panel .panel_body button:focus{
+	outline: none;
+}

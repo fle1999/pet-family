@@ -1,0 +1,46 @@
+/* ==================文件说明==================
+	author:蔡建新
+	create time:2020.10.22
+	new_edition:1.1
+ */
+
+/* 全局设置 */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+a{
+	color: initial;
+	outline: 0;
+	text-decoration: none;
+}
+
+a:hover{
+	color: initial;
+	text-decoration: none;
+}
+
+a:focus{
+	text-decoration: none;
+}
+
+img {
+	border: 0;
+}
+
+ul,li,ol{
+	list-style: none;
+}
+
+li{
+	display: inherit;
+}
+
+button:focus{
+	outline: none;
+}
+
+input:focus{
+	outline: none;
+}

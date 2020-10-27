@@ -1,0 +1,72 @@
+/* ==================文件说明==================
+	author:蔡建新
+	create time:2020.10.22
+	new_edition:1.1
+ */
+.content{
+	margin-top: 6%;
+}
+
+.bg_top{
+    width: 100%;
+    background-image: url(../img/bg/bg01.jpg);
+    padding-top: 200px;
+    padding-bottom: 250px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+}
+
+.bg_top::after{
+	content: "";
+	background-image: url(../img/border/banner-shape.png);
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	bottom: 0;
+	left: 0;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.bg_top img{
+	margin-left: 16%;
+}
+
+.content .doctor_appointment{
+	background-image: url(../img/bg/bg02.png);
+	padding: 180px 205px;
+	background-repeat: no-repeat;
+	background-position: 75%,0;
+}
+
+.content .doctor_appointment .advertising_words{
+	margin-left: 23%;
+}
+
+.content .doctor_appointment .advertising_words img{
+	margin-bottom: 3%;
+}
+
+.content .doctor_appointment .advertising_words p{
+	font-family: '楷体';
+	font-size: 20px;
+}
+
+.content .doctor_appointment .btn{
+	width: 150px;
+	height: 60px!important;
+	border: 0px;
+	background-color: #009fd9;
+	color: white;
+	border-radius: 50px;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 0px 40px;
+	letter-spacing: 0.2em;
+	margin-left: 23%;
+	margin-top: 2%;
+}

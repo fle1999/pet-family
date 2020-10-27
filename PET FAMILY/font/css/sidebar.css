@@ -1,0 +1,37 @@
+/* ==================文件说明==================
+	author:蔡建新
+	create time:2020.10.23
+	new_edition:1.1
+ */
+
+.sidebar{
+	border-right: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	box-shadow: 2px -1px 4px #ccc;
+}
+
+.sidebar .nav-secondary{
+	
+}
+
+.sidebar .nav-secondary li{
+	text-align: center;
+}
+
+.sidebar .nav-secondary li a{
+	padding: 15px 8px;
+}
+
+.sidebar .nav-secondary li.active a{
+	box-shadow: inset -8px 0 0 #3280fc;
+	border-radius: 0px;
+}
+
+.sidebar .nav-secondary li{
+}
+
+.sidebar .nav-secondary li a:hover{
+	box-shadow: inset -8px 0 0 #3280fc!important;
+	border-radius: 0px;
+	color: #3280fc;
+}
