@@ -1,20 +1,54 @@
-/* .mdui-appbar{
-	background-color: aliceblue;
-	height: auto;
-	transition: 1s;
+.mdui-appbar{
+	/* transition: 1s; */
 }
 
 .mdui-appbar .mdui-tab{
-	margin-top: 0px;
-	transition: 1s;
+	/* transition: 1s; */
 }
 
 .mdui-appbar .mdui-tab a{
-	height: 50px;
-	transition: 1s;
+	/* transition: 1s; */
 }
 
 .mdui-appbar .mdui-tab a i{
-	font-size: 45px!important;
+	/* font-size: 45px!important; */
+	/* transition: 1s; */
+}
+
+body{
 	transition: 1s;
-} */
+}
+
+.bg{
+	opacity: 0.4;
+	transition: 1s;
+}
+
+.mdui-list{
+	padding: 0px;
+}
+
+.mdui-list li{
+	padding: 10px 16px;
+}
+
+.content{
+	box-shadow: 2px 3px 4px 1px #ccc;
+	border: 1px solid #ddd;
+	width: 70%;
+	height: 450px;
+	margin: 8% auto;
+	background-color: white;
+}
+
+.icon-atm-fill{
+	color: white;
+	background: #ccc;
+	border-radius: 30%;
+	height: 73px;
+	font-size: 80px;
+}
+
+.icon-atm-fill span{
+	margin-right: 15px;
+}

@@ -100,7 +100,7 @@ $(function(){
 				}else{
 					var userclass = 'undefind';
 				}
-				var document_node = '<p>账号：'+userinfo[0].username+'</p><p>联系方式：'+userinfo[0].telephone+'</p><p>余额：'+userinfo[0].balance+'元</p><p>用户等级：'+userclass+'</p>';
+				var document_node = '<p>用户名：'+userinfo[0].username+'</p><p>联系方式：'+userinfo[0].telephone+'</p><p>余额：'+userinfo[0].balance+'元</p><p>用户等级：'+userclass+'</p>';
 				panel_show_re('user_account','个人信息',document_node);
 				$('.panel').find('.btn:contains("确认")').text('修改');
 			});
@@ -112,6 +112,47 @@ $(function(){
 				$('.panel_body').html('<button class="btn" type="button">确认</button>');
 				var document_node = '<div class="input-control has-icon-right"><input id="money" type="text" class="form-control" placeholder="请输入充值金额"></div><div class="input-control has-icon-right"><input id="password" type="password" class="form-control" placeholder="请输入密码"><label for="inputPasswordExample1" class="input-control-icon-right"><i class="iconfont icon-Notvisible"></i></label>';
 				panel_show_re('recharge','余额充值',document_node);
+				
+				//确认按钮
+				$('button:contains("确认")').on('click',function(){
+					var rechargeMoney = $('#money').val();
+					var userPassword = $('#password').val();
+					var userName = userinfo[0].username;
+					if(rechargeMoney==""){
+						remake_alert('warning-sign','warning','请输入充值金额');
+					}else if(Number(rechargeMoney)<100){
+						remake_alert('warning-sign','warning','最低充值金额为100元');
+					}else if(userPassword==""){
+						remake_alert('warning-sign','warning','请输入密码');
+					}else{
+						rechargeMoney = Number(userinfo[0].balance)+Number($('#money').val());
+						$.ajax({
+							url:'../../back/recharge_money.php',
+							type:'post',
+							dataType:'json',
+							data:{
+								username:userName,
+								userpassword:userPassword,
+								rechargemoney:rechargeMoney
+							},
+							success:function(data){
+								console.log(data);
+								if(data.id==0){
+									remake_alert('bell','success',data.msg);
+									$('.panel').css({
+										'display':'none',
+									})
+									.attr('id','');
+								}else{
+									remake_alert('times','danger',data.msg);
+								}
+							},
+							erro:function(err){
+								remake_alert('times','danger',err);
+							}
+						});
+					}
+				})
 			});
 		};
 		
@@ -190,5 +231,4 @@ $(function(){
 	btn_clcik();
 	rool_tlt();
 	hover();
-	
 });
