@@ -17,38 +17,98 @@
 
 body{
 	transition: 1s;
+	background-image: url(../css/cartoon/whale_bg.css);
 }
 
 .bg{
-	opacity: 0.4;
+	/* opacity: 0.4; */
 	transition: 1s;
 }
 
-.mdui-list{
-	padding: 0px;
-}
-
-.mdui-list li{
-	padding: 10px 16px;
-}
-
-.content{
-	box-shadow: 2px 3px 4px 1px #ccc;
-	border: 1px solid #ddd;
-	width: 70%;
-	height: 450px;
+.top_box{
+	width: 80%;
 	margin: 8% auto;
 	background-color: white;
 }
 
-.icon-atm-fill{
-	color: white;
-	background: #ccc;
-	border-radius: 30%;
-	height: 73px;
-	font-size: 80px;
+.top_box .top_box_tlt{
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 27px;
+	font-weight: 400;
 }
 
-.icon-atm-fill span{
-	margin-right: 15px;
+.top_box .mdui-list{
+	padding: 0px;
+	box-shadow: 2px 3px 4px 1px #ccc;
+	border: 1px solid #ddd;
 }
+
+.top_box .mdui-list .mdui-list-item{
+	padding: 25px 25px;
+	border-bottom: 1px solid #ddd;
+	background-color: white;
+	opacity: 0.5;
+}
+
+.top_box .mdui-list .mdui-list-item a .icon-atm-fill{
+	width: 58px;
+	color: white;
+	background: #ccc;
+	height: 55px;
+	font-size: 60px;
+}
+
+.top_box .mdui-list .mdui-list-item a div{
+	margin: 0px 0px 0px 15px!important;
+	height: 55px;
+	width: 100%;
+}
+
+.top_box .mdui-list .mdui-list-item a div span{
+	display: inline-block;
+	width: 10%;
+	color: #ddd;
+}
+
+.top_box .mdui-list .mdui-list-item a div .list-item-content{
+	width: 89%;
+	text-align: right;
+	display: inline-block;
+	color: #ddd;
+}
+
+.top_box .mdui-list .mdui-list-item a div .list-item-content span{
+	width: auto;
+	margin: 0 1%;
+}
+
+.top_box .mdui-list .mdui-list-item:hover{
+	opacity: 1;
+	background:initial;
+	transition: 0.5s;
+}
+
+.top_box .mdui-list .mdui-list-item:hover a div span{
+	color: #000000;
+}
+
+.bottom_box{
+	width: 80%;
+	margin: 0% auto;
+}
+
+.bottom_box .bottom_box_tlt{
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 27px;
+	font-weight: 400;
+}
+
+.bottom_box .post{
+	height: 450px;
+	padding: 0% 5%;
+	box-shadow: 2px 3px 4px 1px #ccc;
+	border: 1px solid #ddd;
+}
+

@@ -1,0 +1,35 @@
+.heading_tlt p{
+	text-align: center;
+}
+
+.heading_tlt p:nth-of-type(1){
+	font-size: 50px;
+	margin-top: 8%;
+	margin-bottom: 2%;
+}
+
+.input_panel{
+	width: 25%;
+	margin: 2% auto;
+	margin-bottom: 5%;
+}
+
+.input_panel .input-control{
+	padding-bottom: 20px;
+}
+
+.input_panel .input-control input{
+	height: 50px;
+	width: 100%;
+}
+
+.input_panel button{
+	width: 100%;
+	height: 50px;
+	font-size: 18px;
+	letter-spacing: 0.5em;
+}
+
+.input_panel button:focus{
+	outline: none;
+}
