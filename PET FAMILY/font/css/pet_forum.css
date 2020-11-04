@@ -21,7 +21,7 @@ body{
 }
 
 .bg{
-	/* opacity: 0.4; */
+	opacity: 0.4;
 	transition: 1s;
 }
 
@@ -39,6 +39,7 @@ body{
 }
 
 .top_box .mdui-list{
+	margin: 2% 0px 0px 0px;
 	padding: 0px;
 	box-shadow: 2px 3px 4px 1px #ccc;
 	border: 1px solid #ddd;
@@ -106,9 +107,84 @@ body{
 }
 
 .bottom_box .post{
-	height: 450px;
-	padding: 0% 5%;
+	margin-bottom: 5%;
+	padding: 0% 5% 5% 5%;
 	box-shadow: 2px 3px 4px 1px #ccc;
 	border: 1px solid #ddd;
 }
 
+.bottom_box .post .post_row{
+	margin-top: 2%;
+}
+
+.bottom_box .post .post_row label{
+	margin-bottom: 15px;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.bottom_box .post .post_row label span{
+	color: red;
+}
+
+.bottom_box .post input{
+	height: 45px!important;
+	border-radius: 0px;
+}
+
+.bottom_box .post textarea{
+	width: 100%;
+    line-height: 1.53846154;
+    padding: 5px 8px;
+    font-size: 13px;
+    display: block;
+    color: #222;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.bottom_box .post textarea:focus{
+	outline: 0px;
+}
+
+.bottom_box .post_type select{
+	margin-left: 1%;
+	width: 25%;
+	height: 45px;
+	padding: 5px 8px;
+	font-size: 13px;
+	line-height: 1.53846154;
+	color: #222;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+.bottom_box .post_type select option{
+	width: 25%;
+	height: 100px;
+	padding: 5px 8px;
+}
+
+.bottom_box .post .get_btn{
+	text-align: center;
+	width: 100%;
+	margin-top: 2%;
+}
+
+.bottom_box .post .get_btn button{
+	width: 50%;
+	height: 50px;
+	border: 0px;
+	background-color:#009fd9;
+	border-radius: 0;
+	font-size: 18px;
+	color: white;
+	font-weight: 500;
+	letter-spacing: 0.2em;
+}
+
+.bottom_box .post .get_btn button:focus{
+	outline: none;
+	
+}

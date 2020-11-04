@@ -1,0 +1,76 @@
+.mdui-appbar-fixed .mdui-color-indigo{
+	width: 70%;
+}
+
+.divbig{
+	display: flex;
+	margin:  10% auto;
+	width: 40%;
+	height: 500px;
+	box-shadow: 6px 7px 6px -1px #ccc;
+}
+
+.divbig .left_img{
+	width: 80%;
+	height: 500px;
+}
+
+.divbig .divbig2{
+	width: 100%;
+}
+
+.divbig .divbig2 .panel .panel_body .input-control input {
+    height: 50px;
+    border-radius: 0px;
+    border: 1px solid white;
+    font-size: 15px;
+}
+
+.divbig .divbig2 .panel{
+	width: 100%;
+	opacity: 1;
+	position: relative;
+	box-shadow: none;
+	border: 0px;
+	border-radius: 0px;
+	background: white;
+	margin-bottom: 0px;
+	height: 100%;
+	font-size: 18px;
+}
+
+.divbig .divbig2 .form-control {
+    display: block;
+    width: 100%;
+    height: 32px;
+    padding: 5px 8px;
+    font-size: 13px;
+    line-height: 1.53846154;
+    color: #222;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.panel{
+	transition: 0s;
+}
+
+.panel .panel-body h2{
+	margin: 10% 0;
+}
+
+.panel .panel-body .checkbox{
+	margin: 7% 0;
+}
+
+.panel .panel-body .input-control img{
+	left: initial;
+	right: 0px;
+}
+
+.panel .panel-body button{
+	height: 50px;
+	font-size: 18px;
+}

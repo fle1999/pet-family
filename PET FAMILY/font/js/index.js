@@ -32,7 +32,7 @@ $(function(){
 					$('button:eq(0)').text('登陆账号');
 				};
 			},
-			erro:function(err){
+			error:function(err){
 				console.log(err);
 			}
 		});
