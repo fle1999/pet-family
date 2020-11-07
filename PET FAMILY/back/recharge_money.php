@@ -17,7 +17,7 @@
 			if(count($datas)>0){
 				$sql2 = "update userinfo set balance='".$rechargemoney."' where username='".$username."'";
 				mysqli_query($coon,$sql2);
-				// $_SESSION['userinfo']['balance']=$rechargemoney;
+				$_SESSION['userinfo']['balance']=$rechargemoney;
 				// session_destroy();
 				// $_SESSION['userinfo']=$datas;
 				$data = array('id'=>0,'msg'=>'充值成功');

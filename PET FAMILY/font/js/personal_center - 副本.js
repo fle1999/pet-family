@@ -1,10 +1,9 @@
 $(function(){
-	//用户信息获取
-	var str_array = window.location.search.split("&");
-	var user_name = str_array[0].substring(11);
-	var user_id=str_array[1].substring(3);
-	var userinfo = [];
+	//变量存储
+	userinfo = [];
 	
+	window.userinfo2 = [];
+	//封装
 	//漂浮提示
 	function remake_alert(icon,type,msg){
 		new $.zui.Messager(msg,{
@@ -41,72 +40,59 @@ $(function(){
 		});
 	};
 	
+	
+	//事件
 	//登陆检测
 	function loading_check(){
-		 if(user_name=="none"){
-			 remake_alert('times','danger','未登陆');
-			 $('.mdui-tab p').text('未登陆');
-			 setTimeout(function(){
-			 	window.location.href="../../index.html";
-			 },3000);
-		 }else{
-			 remake_alert('bell','success','欢迎登陆 '+user_name);
-			 $('.mdui-tab p').text('Hi '+user_name+' 欢迎登陆');
-		 }
-	};
-
-	//获取用户信息
-	function  gain_userinfo(user_id){
 		$.ajax({
+			url:'../../back/loading_check.php',
 			type:'post',
-			datatType:'json',
-			data:{
-				user_id : user_id
-			},
-			url:"../../back/gain_userinfo.php",
+			dataType:'json',
+			data:{},
 			success:function(data){
-				userinfo[0] = data.info[0];
-				console.log(userinfo[0]);
+				if(data.id==0){
+					userinfo[0] = data.datas[0];
+					console.log(userinfo[0]);
+					remake_alert('bell','success','欢迎登陆 '+data.datas[0].username);
+					$('.mdui-tab p').text('Hi '+data.datas[0].username+' 欢迎登陆');
+					return data.datas[0];
+				}else if(data.id==1){
+					remake_alert('times','danger','未登陆');
+					$('.mdui-tab p').text('未登陆');
+					setTimeout(function(){
+						window.location.href="../../index.html";
+					},3000);
+				};
 			},
-			error:function(err){
+			erro:function(err){
 				console.log(err);
 			}
 		});
-	}
+	};
 	
+	//用户查询
+	function gain_userinfo(id){
+		var userid = id;
+		$.ajax({
+				type:'post',
+				datatType:'json',
+				data:{
+					user_id : userid
+				},
+				url:"../../back/gain_userinfo.php",
+				success:function(data){
+					userinfo2[0] = data.info[0];
+				},
+				error:function(err){
+					console.log(err);
+				}
+		});
+	};
+	
+	
+	// 点击事件集合
 	function btn_clcik(){
-		//页面跳转
-		function page_jump(){
-			$('.mdui-tab').find('a:eq(2)').click(function(){
-				window.location.href = 'main.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(3)').click(function(){
-				window.location.href = 'pet_forum.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(4)').click(function(){
-				window.location.href = 'pet_photo.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(5)').click(function(){
-				window.location.href = 'doctor_manner.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(6)').click(function(){
-				window.location.href = 'doctor_appointment.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(7)').click(function(){
-				window.location.href = 'contact_us.html?user_name='+user_name+'&id='+user_id;
-			});
-			
-			$('.mdui-tab').find('a:eq(8)').click(function(){
-				window.location.href = 'personal_center.html?user_name='+user_name+'&id='+user_id;
-			});
-		};
-		
-		//通知栏点击
+		//通知栏
 		function notice_click(){
 			$('.navbar_notice i:eq(0)').bind('click',function(){
 				$('.navbar_notice').css({
@@ -125,17 +111,19 @@ $(function(){
 		// 个人信息
 		function personal_information(){
 			$('.module_container:eq(0)').click(function(){
+				gain_userinfo(userinfo[0].id);
+				gain_userinfo(userinfo[0].id);
 				$('.panel_body').html('<button class="btn" type="button">确认</button>');
-				if(userinfo[0].classifyid==1){
+				if(userinfo2[0].classifyid==1){
 					var userclass = '普通用户';
-				}else if(userinfo[0].classifyid==2){
+				}else if(userinfo2[0].classifyid==2){
 					var userclass = '管理员';
-				}else if(userinfo[0].classifyid==3){
+				}else if(userinfo2[0].classifyid==3){
 					var userclass = '超级管理员';
 				}else{
 					var userclass = 'undefind';
 				}
-				var document_node = '<p>用户名：'+userinfo[0].username+'</p><p>联系方式：'+userinfo[0].telephone+'</p><p>余额：'+userinfo[0].balance+'元</p><p>用户等级：'+userclass+'</p>';
+				var document_node = '<p>用户名：'+userinfo2[0].username+'</p><p>联系方式：'+userinfo2[0].telephone+'</p><p>余额：'+userinfo2[0].balance+'元</p><p>用户等级：'+userclass+'</p>';
 				panel_show_re('user_account','个人信息',document_node);
 				$('.panel').find('.btn:contains("确认")').text('修改');
 			});
@@ -149,7 +137,7 @@ $(function(){
 				panel_show_re('recharge','余额充值',document_node);
 				
 				//确认按钮
-				$('#recharge').find('button:contains("确认")').unbind().bind('click',function(){
+				$('button:contains("确认")').on('click',function(){
 					var rechargeMoney = $('#money').val();
 					var userPassword = $('#password').val();
 					var userName = userinfo[0].username;
@@ -178,9 +166,6 @@ $(function(){
 										'display':'none',
 									})
 									.attr('id','');
-									setTimeout(function(){
-										window.location.href = 'personal_center.html?user_name='+user_name+'&id='+user_id;
-									},1500);
 								}else{
 									remake_alert('times','danger',data.msg);
 								}
@@ -189,8 +174,8 @@ $(function(){
 								remake_alert('times','danger',err);
 							}
 						});
-					};
-				});
+					}
+				})
 			});
 		};
 		
@@ -201,48 +186,50 @@ $(function(){
 				$('.panel_body').html('<button class="btn" type="button">确认</button>');
 				var document_node =  '<div class="input-control has-icon-right"><input id="password" type="password" class="form-control" placeholder="请输入新密码"><label for="inputPasswordExample1" class="input-control-icon-right"><i class="iconfont icon-Notvisible"></i></label></div><div class="input-control has-icon-right"><input id="repassword" type="password" class="form-control" placeholder="再次输入密码"></div>';
 				panel_show_re('change_password','重置密码',document_node);
-				$('.panel').find('.btn:contains("确认")').text('重置');
-				//确认按钮
-				$('button:contains("重置")').unbind().bind('click',function(){
-					var password =  $('#password').val();
-					var repassword =  $('#repassword').val();
-					if(password==""){
-						remake_alert('warning-sign','warning','请输入新密码');
-						empty();
-					}else if(repassword==""){
-						remake_alert('warning-sign','warning','请再次输入密码');
-						empty();
-					}else if(repassword!=password){
-						remake_alert('warning-sign','warning','两次密码输入不一致');
-						empty();
-					}else{
-						$.ajax({
-							type:'post',
-							dataType:'json',
-							data:{
-								userpassword:password
-							},
-							url:'../../back/change_password.php',
-							success:function(data){
-								console.log(data);
-							},
-							error:function(err){
-								console.log(err);
-							}
-						});
-					};
-				});
 			});
-			
+			//确认按钮
 		};
 		
-		page_jump();
 		notice_click();
 		personal_information();
 		recharge();
-		change_password();	
+		change_password();
 	};
 	
+	//鼠标划过事件
+	function hover(){
+		// 个人中心模块鼠标划过
+		function module_hover(){
+			$('.module_container').mouseenter(function(){
+				$(this).find('img').css({
+					'width':'50%',
+					'height':'50%',
+					'transition':'0.2s',
+				})
+				.next(':first').children().each(function(){
+					$(this).css({
+						'color':'#2c80ff',
+					});
+				});
+			});
+			
+			
+			$('.module_container').mouseleave(function(){
+				$(this).find('img').css({
+					'width':'56px',
+					'height':'56px',
+				})
+				.next(':first').children(':first').css({
+					'color':'#333',
+				})
+				.next().css({
+					'color':'#777',
+				});
+			});
+		};
+		
+		module_hover();
+	};
 	
 	// 通知信息滚动
 	function rool_tlt(){
@@ -263,8 +250,9 @@ $(function(){
 	};
 	
 	
-	loading_check();
-	gain_userinfo(user_id);
+	//总线
+	loading_check()
 	btn_clcik();
 	rool_tlt();
+	hover();
 });

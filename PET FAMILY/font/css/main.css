@@ -1,0 +1,170 @@
+
+/*轮播*/
+.carousel{
+	margin-top: 4%;
+}
+
+/*轮播底下内容*/
+.container.content_row1{
+	display: flex;
+}
+
+.content_row1_left{
+	width: 230px; 
+	height: 130px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: 20px 0px 0px 18px;
+}
+
+.content_row1_left_left{
+	display: inline-block; 
+}
+
+.content_row1_left_right{
+	display: inline-block;
+}
+
+.content_row1_left_right img{
+	width: 100px;
+	height: 100px;
+}
+
+.content_row1_center{
+	width: 230px; 
+	height: 130px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: 20px 0px 0px 18px;
+}
+
+.content_row1_center_left{
+	display: inline-block; 
+}
+
+.content_row1_center_right{
+	display: inline-block;
+}
+
+.content_row1_center_right img{
+	width:100px; 
+	height:100px;
+}
+
+.content_row1_right{
+	width: 230px; 
+	height: 130px;
+	border: 1px solid #ccc;
+	display: inline-block;
+}
+
+/*标题底下内容-狗专题*/
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+.content_row2{
+	width: 1140px;
+	height: 340px;
+	display: flex;
+	border:1px solid #ddd;
+	padding: 10px;
+}
+
+.content_row2_left{
+	width: 320px;
+	height: 320px;
+}
+
+.content_row2_left img{
+	height: 100%;
+    padding-right: 10px;
+}
+
+.content_row2_right{
+	width: 820px;
+	height: 340px;
+}
+
+.content_row2_top{
+	width: 820px;
+	display: flex;
+}
+
+.content_row2_top span{
+	display: block;
+	width: 205px;
+	height: 190px;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+   	border-bottom: 0px;
+    border-right: 0px;
+}
+
+.content_row2_top span:nth-of-type(1)::before{
+	content: "狗狗用品 >>";
+    position: absolute;
+    color: red;
+    top: 685px;
+    font-size: 14px;
+}
+
+.content_row2_top a{
+	color: red;
+}
+
+.content_row2_top p{
+	font-size: small;
+	color: #C0C0C0;
+}
+.content_row2_top img{
+	width: 150px;
+	height: 100px;
+	margin-top: 25px;
+}
+
+.content_row2_bottom{
+	display: flex;
+	height:140px;
+	width: 820px;
+}
+.content_row2_bottom span{
+	display: flex;
+	width: 34%;
+	height: 92%;
+	border: 1px solid #CCCCCC;
+	border-right: 0px;
+}
+
+.content_row2_bottom  span:nth-of-type(1)::before{
+	content: "狗狗用品分类 >>";
+    position: absolute;
+    color: red;
+    top: 877px;
+    font-size: 14px;
+    left: 37.5%;
+}
+.content_row2_bottom img{
+	width: 90px;
+	height: 90px;
+	margin-top: 35px;
+	margin-left: 20px;
+	display: inline-block;
+}
+
+.content_row2_bottom p{
+	font-size: small;
+	color: #C0C0C0;
+}
+
+.content_row2_bottom .content_word{
+    margin-top: 10%;
+    margin-left: 9%;
+}
+
+.end_box{
+	margin-bottom: 100px;
+}
+
+

@@ -1,5 +1,7 @@
 $(function(){
-	
+	var userinfo = [];
+	var user_name = "none";
+	var user_id = "none";
 	//封装漂浮提示
 	function remake_alert(icon,type,msg){
 		new $.zui.Messager(msg, {
@@ -25,6 +27,9 @@ $(function(){
 			data:{},
 			success:function(data){
 				if(data.id==0){
+					userinfo[0] = data.datas[0];
+					user_id = data.datas[0].id;
+					user_name = data.datas[0].username;
 					remake_alert('bell','success','欢迎登陆 '+data.datas[0].username);
 					$('button:eq(0)').text('退出登陆');
 				}else if(data.id==1){
@@ -40,6 +45,36 @@ $(function(){
 	
 	//按钮点击事件
 	function btn_click(){
+		//页面跳转
+		function page_jump(){
+			$('.mdui-tab').find('a:eq(2)').click(function(){
+				window.location.href = 'font/subweb/main.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(3)').click(function(){
+				window.location.href = 'font/subweb/pet_forum.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(4)').click(function(){
+				window.location.href = 'font/subweb/pet_photo.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(5)').click(function(){
+				window.location.href = 'font/subweb/doctor_manner.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(6)').click(function(){
+				window.location.href = 'font/subweb/doctor_appointment.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(7)').click(function(){
+				window.location.href = 'font/subweb/contact_us.html?user_name='+user_name+'&id='+user_id;
+			});
+			
+			$('.mdui-tab').find('a:eq(8)').click(function(){
+				window.location.href = 'font/subweb/personal_center.html?user_name='+user_name+'&id='+user_id;
+			});
+		};
 		
 		$('button:contains("登陆账号")').click(function(){
 			$('.login_panel').css({
@@ -132,6 +167,7 @@ $(function(){
 				});
 			};
 		});
+		page_jump();
 	};
 
 	//总线
